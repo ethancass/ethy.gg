@@ -1,0 +1,274 @@
+/* General Styles */
+body {
+    font-family: 'Consolas', 'Courier New', monospace; /* Hacker aesthetic */
+    background: #121212; /* Base dark background */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Adjust gap for consistent spacing */
+}
+
+/* Ethy Text */
+.command-line {
+    font-size: 3rem;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    font-family: 'Consolas', 'Courier New', monospace;
+    animation: flicker 1.5s infinite;
+    cursor: default;
+}
+
+.cursor {
+    font-size: 3rem; /* Match the size of ethy text */
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Add glow to match ethy */
+    font-family: 'Consolas', 'Courier New', monospace; /* Match ethy font */
+    animation: cursorBlink 1s step-start infinite, cursorFlicker 1.5s infinite; /* Combined animations */
+    line-height: 1; /* Align properly with ethy text */
+    cursor: default;
+}
+
+/* Blinking Animation */
+@keyframes cursorBlink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Invisible */
+    }
+}
+
+/* Flickering Glow Animation */
+@keyframes cursorFlicker {
+    0%, 100% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Full glow */
+    }
+    50% {
+        text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; /* Dim glow */
+    }
+}
+
+/* Vault Section */
+.vault-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.vault-section p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0; /* Remove excess margin for tighter layout */
+}
+
+/* Static Text: Modpack */
+.modpack-static {
+    font-size: 1rem;
+    color: #ffffff; /* White text */
+    text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff; /* White glow */
+    cursor: default; /* Default cursor instead of text */
+}
+
+/* Vault Hunters Link */
+.vault-link {
+    font-size: 1rem; /* Match the size of other text */
+    color: #00ff00;
+    text-decoration: none;
+    text-shadow: 0 0 3px #00ff00, 0 0 6px #00ff00;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.vault-link:hover {
+    text-decoration: underline;
+    color: #00cc00;
+}
+
+/* Server Details */
+.server-details {
+    margin-top: 5px; /* Reduced space between modpack: and server ip: */
+}
+
+.server-details p {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adjust gap for spacing */
+    margin: 0; /* Remove excess margin */
+}
+
+/* Static Text: Server IP */
+.server-static {
+    font-size: 1rem;
+    color: #ffffff; /* White text */
+    text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff; /* White glow */
+    cursor: default; /* Default cursor instead of text */
+}
+
+/* Server IP */
+.server-ip {
+    font-size: 1rem;
+    color: #00ff00;
+    text-shadow: 0 0 3px #00ff00, 0 0 6px #00ff00;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.server-ip:hover {
+    color: #00cc00;
+    text-decoration: underline;
+}
+
+/* Tooltip */
+.copied-tooltip {
+    margin-top: 10px;
+    color: #00ff00;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px #00ff00, 0 0 6px #00ff00;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* CRT Effect with Scan Lines */
+.crt-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind all content */
+    pointer-events: none; /* Non-interactive */
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 3px; /* Horizontal lines every 3px */
+    opacity: 0.5;
+    animation: crtFlicker 0.15s infinite, scanlinesMove 10s linear infinite;
+}
+
+/* Flicker Effect */
+@keyframes crtFlicker {
+    0%, 100% {
+        opacity: 0.45;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Blink Animation */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0; /* Disappear halfway through */
+    }
+    100% {
+        opacity: 1; /* Reappear at the end */
+    }
+}
+
+/* Flickering Text Shadow */
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00;
+    }
+}
+
+/* Grouped Rectangle Container */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    gap: 0px; /* Remove additional space between lines */
+    padding: 4px 8px; /* Further reduce padding (vertical and horizontal) */
+    border: 2px solid rgba(255, 255, 255, 0.6); /* White glowing border */
+    border-radius: 6px; /* Slightly rounded corners */
+    background: rgba(0, 0, 0, 0.3); /* Transparent black background */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+    margin-top: 5px; /* Reduce space from the elements above */
+}
+
+/* Notification Rectangle */
+.notification {
+    position: fixed;
+    bottom: -100px; /* Start off-screen */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.3); /* Lighter transparent background */
+    border: 2px solid rgba(255, 255, 255, 0.6); /* White glowing border */
+    border-radius: 6px; /* Rounded corners */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+    padding: 8px 16px; /* Reduced padding */
+    font-size: 0.9rem; /* Consistent font size */
+    color: #ffffff; /* White text */
+    text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff; /* Subtle white glow */
+    z-index: 1000; /* Ensure it’s above other elements */
+    opacity: 0; /* Start invisible */
+    animation: slideUp 1s ease-out forwards, fadeIn 1s ease-out forwards;
+    max-width: 400px; /* Set a maximum width */
+    width: fit-content; /* Shrink to content size */
+    text-align: center; /* Center text within the box */
+    cursor: default;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+    from {
+        bottom: -100px; /* Off-screen */
+    }
+    to {
+        bottom: 20px; /* Visible position */
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Invisible */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Child Elements (Ensure No Extra Spacing) */
+.info-container p {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Adjust small gap between static and dynamic text */
+    margin: 0; /* Remove default margins */
+    line-height: 1; /* Compact line height */
+}
+
+.modpack-static,
+.server-static {
+    margin: 10px; /* Remove margins for static text */
+}
+
+.server-ip {
+    margin: 10px; /* Remove margins for the server IP */
+}
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ethy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="crt-background"></div>
+        <div class="info-container">
+            <p>
+                <span class="modpack-static">modpack:</span>
+                <a href="https://www.curseforge.com/minecraft/modpacks/vault-hunters-1-18-2/files/5925838" 
+                   class="vault-link" target="_blank">vault hunters</a>
+            </p>
+            <p>
+                <span class="server-static">server ip:</span>
+                <span class="server-ip" onclick="copyToClipboard()">mc.ethy.gg</span>
+            </p>
+        </div>
+        
+        <div class="notification">
+            <p>to install the modpack, open the modpack link and download it with curseforge</p>
+        </div>
+        
+        <div class="copied-tooltip" id="copied-tooltip">
+            mc.ethy.gg &lt; copied to clipboard
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
